@@ -107,6 +107,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="KameraManager\Camera_Manager.cs" />
+    <Compile Include="KameraManager\Input_Manager.cs" />
+    <Compile Include="KameraManager\MatCamera.cs" />
+    <Compile Include="KameraManager\ModelItem.cs" />
+    <Compile Include="KameraManager\QatCamera.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
