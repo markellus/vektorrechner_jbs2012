@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VektorRechner", "VektorRechner\VektorRechner.csproj", "{D8C73D81-CE65-4742-8F41-C8B3466677FA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dxengine", "dxengine\dxengine\dxengine.csproj", "{A96E9BB6-BA7E-436E-A4E3-23FF03CDA225}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "dxengineContent", "dxengine\dxengineContent\dxengineContent.contentproj", "{F7C50C6D-2F65-45BF-A5B2-343F5E11453D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
