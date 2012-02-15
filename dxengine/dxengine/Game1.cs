@@ -27,6 +27,7 @@ namespace dxengine
         protected override void Initialize()
         {
             base.Initialize();
+            int x = 1;
         }
 
         protected override void LoadContent()
