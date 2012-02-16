@@ -15,5 +15,41 @@ namespace VektorRechner
         {
             InitializeComponent();
         }
+
+        private double[] AddiereVektoren(double[] vektor1, double[] vektor2)
+        {
+            if (vektor1.Length != vektor2.Length)
+            {
+                MessageBox.Show("Beide Vektoren müssen dieselbe Anzahl an Dimensionen haben!");
+                return null;
+            }
+
+            double[] ergebnis = new double[vektor1.Length];
+
+            for (int i = 0; i > vektor1.Length; i++)
+            {
+                ergebnis[i] = vektor1[i] + vektor2[i];
+            }
+
+            return ergebnis;
+        }
+
+        private double[] SubtrahiereVektoren(double[] vektor1, double[] vektor2)
+        {
+            if (vektor1.Length != vektor2.Length)
+            {
+                MessageBox.Show("Beide Vektoren müssen dieselbe Anzahl an Dimensionen haben!");
+                return null;
+            }
+
+            double[] ergebnis = new double[vektor1.Length];
+
+            for (int i = 0; i > vektor1.Length; i++)
+            {
+                ergebnis[i] = vektor1[i] - vektor2[i];
+            }
+
+            return ergebnis;
+        }
     }
 }
