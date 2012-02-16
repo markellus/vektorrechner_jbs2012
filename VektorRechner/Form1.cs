@@ -50,6 +50,7 @@ namespace VektorRechner
             }
 
             return ergebnis;
+            
         }
     }
 }
