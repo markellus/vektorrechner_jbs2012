@@ -49,8 +49,33 @@ namespace VektorRechner
                 ergebnis[i] = vektor1[i] - vektor2[i];
             }
 
-            return ergebnis;
-            
+            return ergebnis;            
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox8_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox10_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox9_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnÜber_Click(object sender, EventArgs e)
+        {
+            AboutBox1 about = new AboutBox1();
+            about.Show();
         }
     }
 }

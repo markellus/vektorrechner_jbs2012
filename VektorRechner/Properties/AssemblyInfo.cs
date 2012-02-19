@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // Allgemeine Informationen über eine Assembly werden über die folgenden 
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die mit einer Assembly verknüpft sind.
-[assembly: AssemblyTitle("VektorRechner")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("VektorRechner 2012")]
+[assembly: AssemblyDescription("Programm zum Berechnen und Darstellen von mathematischen Vektoren")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("11a@JBS-Pinneberg")]
 [assembly: AssemblyProduct("VektorRechner")]
-[assembly: AssemblyCopyright("Copyright ©  2012")]
+[assembly: AssemblyCopyright("Copyright ©  2012 Marcel Bulla und Torben Binder")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
