@@ -6,6 +6,8 @@ using System.Windows.Forms;
 namespace VektorRechner
 {
     static class Program
+        int XYZblabla;
+
     {
         /// <summary>
         /// Der Haupteinstiegspunkt für die Anwendung.

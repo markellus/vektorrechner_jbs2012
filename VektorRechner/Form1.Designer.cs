@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cboPlusMinus = new System.Windows.Forms.ComboBox();
             this.txtVektor23 = new System.Windows.Forms.TextBox();
             this.txtVektor22 = new System.Windows.Forms.TextBox();
             this.txtVektor21 = new System.Windows.Forms.TextBox();
@@ -48,7 +49,6 @@
             this.x = new System.Windows.Forms.GroupBox();
             this.btnÜber = new System.Windows.Forms.Button();
             this.btnAnleitung = new System.Windows.Forms.Button();
-            this.cboPlusMinus = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -75,6 +75,17 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Vektoren";
+            // 
+            // cboPlusMinus
+            // 
+            this.cboPlusMinus.FormattingEnabled = true;
+            this.cboPlusMinus.Items.AddRange(new object[] {
+            "+",
+            "-"});
+            this.cboPlusMinus.Location = new System.Drawing.Point(152, 58);
+            this.cboPlusMinus.Name = "cboPlusMinus";
+            this.cboPlusMinus.Size = new System.Drawing.Size(38, 21);
+            this.cboPlusMinus.TabIndex = 9;
             // 
             // txtVektor23
             // 
@@ -244,17 +255,6 @@
             this.btnAnleitung.Text = "Anleitung";
             this.btnAnleitung.UseVisualStyleBackColor = true;
             // 
-            // cboPlusMinus
-            // 
-            this.cboPlusMinus.FormattingEnabled = true;
-            this.cboPlusMinus.Items.AddRange(new object[] {
-            "+",
-            "-"});
-            this.cboPlusMinus.Location = new System.Drawing.Point(152, 58);
-            this.cboPlusMinus.Name = "cboPlusMinus";
-            this.cboPlusMinus.Size = new System.Drawing.Size(38, 21);
-            this.cboPlusMinus.TabIndex = 9;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -267,6 +267,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
             this.Text = "Vektorrechner";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

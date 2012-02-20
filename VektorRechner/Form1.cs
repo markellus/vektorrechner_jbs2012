@@ -91,5 +91,10 @@ namespace VektorRechner
             txtVektor32.Text = Convert.ToString(vektor3[1]);
             txtVektor33.Text = Convert.ToString(vektor3[2]);
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
