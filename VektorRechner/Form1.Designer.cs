@@ -47,9 +47,11 @@
             this.txtVektor31 = new System.Windows.Forms.TextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.x = new System.Windows.Forms.GroupBox();
+            this.btnKurs = new System.Windows.Forms.Button();
             this.btnÜber = new System.Windows.Forms.Button();
             this.btnAnleitung = new System.Windows.Forms.Button();
-            this.btnKurs = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.btnWeb = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -61,6 +63,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkBox1);
             this.groupBox1.Controls.Add(this.cboPlusMinus);
             this.groupBox1.Controls.Add(this.txtVektor23);
             this.groupBox1.Controls.Add(this.txtVektor22);
@@ -168,6 +171,7 @@
             this.btnGrafik.TabIndex = 1;
             this.btnGrafik.Text = "Grafische Darstellung";
             this.btnGrafik.UseVisualStyleBackColor = true;
+            this.btnGrafik.Click += new System.EventHandler(this.btnGrafik_Click);
             // 
             // btnAusrechnen
             // 
@@ -194,25 +198,28 @@
             // 
             // txtVektor33
             // 
-            this.txtVektor33.Enabled = false;
+            this.txtVektor33.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtVektor33.Location = new System.Drawing.Point(39, 84);
             this.txtVektor33.Name = "txtVektor33";
+            this.txtVektor33.ReadOnly = true;
             this.txtVektor33.Size = new System.Drawing.Size(78, 20);
             this.txtVektor33.TabIndex = 16;
             // 
             // txtVektor32
             // 
-            this.txtVektor32.Enabled = false;
+            this.txtVektor32.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtVektor32.Location = new System.Drawing.Point(39, 58);
             this.txtVektor32.Name = "txtVektor32";
+            this.txtVektor32.ReadOnly = true;
             this.txtVektor32.Size = new System.Drawing.Size(78, 20);
             this.txtVektor32.TabIndex = 15;
             // 
             // txtVektor31
             // 
-            this.txtVektor31.Enabled = false;
+            this.txtVektor31.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtVektor31.Location = new System.Drawing.Point(39, 32);
             this.txtVektor31.Name = "txtVektor31";
+            this.txtVektor31.ReadOnly = true;
             this.txtVektor31.Size = new System.Drawing.Size(78, 20);
             this.txtVektor31.TabIndex = 14;
             // 
@@ -227,19 +234,29 @@
             // 
             // x
             // 
+            this.x.Controls.Add(this.btnWeb);
             this.x.Controls.Add(this.btnKurs);
             this.x.Controls.Add(this.btnÜber);
             this.x.Controls.Add(this.btnAnleitung);
             this.x.Location = new System.Drawing.Point(177, 236);
             this.x.Name = "x";
-            this.x.Size = new System.Drawing.Size(177, 127);
+            this.x.Size = new System.Drawing.Size(177, 135);
             this.x.TabIndex = 3;
             this.x.TabStop = false;
             this.x.Text = "Einstellungen";
             // 
+            // btnKurs
+            // 
+            this.btnKurs.Location = new System.Drawing.Point(6, 48);
+            this.btnKurs.Name = "btnKurs";
+            this.btnKurs.Size = new System.Drawing.Size(165, 23);
+            this.btnKurs.TabIndex = 2;
+            this.btnKurs.Text = "Was sind Vektoren?";
+            this.btnKurs.UseVisualStyleBackColor = true;
+            // 
             // btnÜber
             // 
-            this.btnÜber.Location = new System.Drawing.Point(6, 98);
+            this.btnÜber.Location = new System.Drawing.Point(6, 106);
             this.btnÜber.Name = "btnÜber";
             this.btnÜber.Size = new System.Drawing.Size(165, 23);
             this.btnÜber.TabIndex = 1;
@@ -256,21 +273,33 @@
             this.btnAnleitung.TabIndex = 0;
             this.btnAnleitung.Text = "Anleitung";
             this.btnAnleitung.UseVisualStyleBackColor = true;
+            this.btnAnleitung.Click += new System.EventHandler(this.btnAnleitung_Click);
             // 
-            // btnKurs
+            // checkBox1
             // 
-            this.btnKurs.Location = new System.Drawing.Point(6, 48);
-            this.btnKurs.Name = "btnKurs";
-            this.btnKurs.Size = new System.Drawing.Size(165, 23);
-            this.btnKurs.TabIndex = 2;
-            this.btnKurs.Text = "Was sind Vektoren?";
-            this.btnKurs.UseVisualStyleBackColor = true;
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(39, 111);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(105, 17);
+            this.checkBox1.TabIndex = 10;
+            this.checkBox1.Text = "checkOrtsvektor";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // btnWeb
+            // 
+            this.btnWeb.Location = new System.Drawing.Point(6, 77);
+            this.btnWeb.Name = "btnWeb";
+            this.btnWeb.Size = new System.Drawing.Size(165, 23);
+            this.btnWeb.TabIndex = 3;
+            this.btnWeb.Text = "zur Website";
+            this.btnWeb.UseVisualStyleBackColor = true;
+            this.btnWeb.Click += new System.EventHandler(this.btnWeb_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(366, 375);
+            this.ClientSize = new System.Drawing.Size(366, 380);
             this.Controls.Add(this.x);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -316,6 +345,8 @@
         private System.Windows.Forms.Button btnAnleitung;
         private System.Windows.Forms.ComboBox cboPlusMinus;
         private System.Windows.Forms.Button btnKurs;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button btnWeb;
     }
 }
 
