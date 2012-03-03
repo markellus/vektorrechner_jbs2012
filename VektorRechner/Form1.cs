@@ -21,7 +21,11 @@ namespace VektorRechner
         private double[] vektor2 = new double[3];
         private double[] vektor3 = new double[3];
 
+        private double multiplikator = 0;
+
         bool is3D = false;
+        bool isMultiplizieren = false;
+
 
         private void AddiereVektoren()
         {
@@ -55,6 +59,16 @@ namespace VektorRechner
             }          
         }
 
+        private void MultipliziereVektoren()
+        {
+            vektor3 = new double[vektor1.Length];
+
+            for (int i = 0; i < vektor1.Length; i++)
+            {
+                vektor3[i] = vektor1[i] * multiplikator;
+            }
+        }
+
         private void btnÜber_Click(object sender, EventArgs e)
         {
             AboutBox1 about = new AboutBox1();
@@ -69,9 +83,13 @@ namespace VektorRechner
             {
                 AddiereVektoren();
             }
-            else
+            else if (cboPlusMinus.SelectedIndex == 1)
             {
                 SubtrahiereVektoren();
+            }
+            else
+            {
+                MultipliziereVektoren();
             }
 
             zeigeErgebnis();
@@ -81,7 +99,7 @@ namespace VektorRechner
         {
             try
             {
-                if (txtVektor11.Text == "" | txtVektor12.Text == "" | txtVektor21.Text == "" | txtVektor22.Text == "") { VektorDimensionException(); return; }
+                if (txtVektor11.Text == "" | txtVektor12.Text == "") { VektorDimensionException(); return; }
 
                 vektor1[0] = Convert.ToDouble(txtVektor11.Text);
                 vektor1[1] = Convert.ToDouble(txtVektor12.Text);
@@ -91,12 +109,23 @@ namespace VektorRechner
                     vektor1[2] = Convert.ToDouble(txtVektor13.Text);
                 }
 
-                vektor2[0] = Convert.ToDouble(txtVektor21.Text);
-                vektor2[1] = Convert.ToDouble(txtVektor22.Text);
-                if (txtVektor23.Text != "")
+
+                if (isMultiplizieren)
                 {
-                    is3D = true;
-                    vektor2[2] = Convert.ToDouble(txtVektor23.Text);
+                    multiplikator = Convert.ToDouble(txtMultiplikator.Text);
+                }
+                else
+                {
+
+                    if (txtVektor21.Text == "" | txtVektor22.Text == "") { VektorDimensionException(); return; }
+
+                    vektor2[0] = Convert.ToDouble(txtVektor21.Text);
+                    vektor2[1] = Convert.ToDouble(txtVektor22.Text);
+                    if (txtVektor23.Text != "")
+                    {
+                        is3D = true;
+                        vektor2[2] = Convert.ToDouble(txtVektor23.Text);
+                    }
                 }
             }
             catch (Exception ex)
@@ -151,6 +180,16 @@ namespace VektorRechner
 
         private void btnAnleitung_Click(object sender, EventArgs e)
         {
+        }
+
+        private void btnWeb_Click(object sender, EventArgs e)
+        {
+            Website web = new Website();
+            web.Show();
+        }
+
+        private void btnKurs_Click(object sender, EventArgs e)
+        {
             MessageBox.Show("In Kürze verfügbar. Prüfen Sie auf Updates!");
             return;
 
@@ -158,10 +197,43 @@ namespace VektorRechner
             kurs.Show();
         }
 
-        private void btnWeb_Click(object sender, EventArgs e)
+        private void cboPlusMinus_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Website web = new Website();
-            web.Show();
+            if (cboPlusMinus.SelectedIndex == 2) { MultipliziermodusAktivieren(); }
+            else { MultipliziermodusDeaktivieren(); }
+        }
+
+        private void MultipliziermodusAktivieren()
+        {
+            txtVektor21.Visible = false;
+            txtVektor22.Visible = false;
+            txtVektor23.Visible = false;
+            pictureBox2.Visible = false;
+
+            txtMultiplikator.Visible = true;
+
+            checkOrtsvektor.Checked = false;
+            checkOrtsvektor.Enabled = false;
+
+            isMultiplizieren = true;
+        }
+
+        private void MultipliziermodusDeaktivieren()
+        {
+            txtVektor21.Visible = true;
+            txtVektor22.Visible = true;
+            txtVektor23.Visible = true;
+            pictureBox2.Visible = true;
+
+            txtMultiplikator.Visible = false;
+
+            checkOrtsvektor.Enabled = true;
+
+            isMultiplizieren = false;
+        }
+
+        private void checkOrtsvektor_CheckedChanged(object sender, EventArgs e)
+        {
         }
     }
 }

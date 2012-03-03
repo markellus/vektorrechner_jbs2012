@@ -33,11 +33,9 @@
             this.txtVektor23 = new System.Windows.Forms.TextBox();
             this.txtVektor22 = new System.Windows.Forms.TextBox();
             this.txtVektor21 = new System.Windows.Forms.TextBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.txtVektor13 = new System.Windows.Forms.TextBox();
             this.txtVektor12 = new System.Windows.Forms.TextBox();
             this.txtVektor11 = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnGrafik = new System.Windows.Forms.Button();
             this.btnAusrechnen = new System.Windows.Forms.Button();
@@ -45,25 +43,29 @@
             this.txtVektor33 = new System.Windows.Forms.TextBox();
             this.txtVektor32 = new System.Windows.Forms.TextBox();
             this.txtVektor31 = new System.Windows.Forms.TextBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.x = new System.Windows.Forms.GroupBox();
             this.btnKurs = new System.Windows.Forms.Button();
             this.btnÜber = new System.Windows.Forms.Button();
             this.btnAnleitung = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkOrtsvektor = new System.Windows.Forms.CheckBox();
             this.btnWeb = new System.Windows.Forms.Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtMultiplikator = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.x.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.checkBox1);
+            this.groupBox1.Controls.Add(this.txtMultiplikator);
+            this.groupBox1.Controls.Add(this.checkOrtsvektor);
             this.groupBox1.Controls.Add(this.cboPlusMinus);
             this.groupBox1.Controls.Add(this.txtVektor23);
             this.groupBox1.Controls.Add(this.txtVektor22);
@@ -85,11 +87,13 @@
             this.cboPlusMinus.FormattingEnabled = true;
             this.cboPlusMinus.Items.AddRange(new object[] {
             "+",
-            "-"});
+            "-",
+            "*"});
             this.cboPlusMinus.Location = new System.Drawing.Point(152, 58);
             this.cboPlusMinus.Name = "cboPlusMinus";
             this.cboPlusMinus.Size = new System.Drawing.Size(38, 21);
             this.cboPlusMinus.TabIndex = 9;
+            this.cboPlusMinus.SelectedIndexChanged += new System.EventHandler(this.cboPlusMinus_SelectedIndexChanged);
             // 
             // txtVektor23
             // 
@@ -112,15 +116,6 @@
             this.txtVektor21.Size = new System.Drawing.Size(78, 20);
             this.txtVektor21.TabIndex = 6;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::VektorRechner.Properties.Resources.vektorKlammer;
-            this.pictureBox2.Location = new System.Drawing.Point(189, 19);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(147, 99);
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
-            // 
             // txtVektor13
             // 
             this.txtVektor13.Location = new System.Drawing.Point(39, 84);
@@ -141,15 +136,6 @@
             this.txtVektor11.Name = "txtVektor11";
             this.txtVektor11.Size = new System.Drawing.Size(78, 20);
             this.txtVektor11.TabIndex = 1;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::VektorRechner.Properties.Resources.vektorKlammer;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 19);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(147, 99);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // groupBox2
             // 
@@ -223,15 +209,6 @@
             this.txtVektor31.Size = new System.Drawing.Size(78, 20);
             this.txtVektor31.TabIndex = 14;
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::VektorRechner.Properties.Resources.vektorKlammer;
-            this.pictureBox3.Location = new System.Drawing.Point(6, 19);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(147, 99);
-            this.pictureBox3.TabIndex = 13;
-            this.pictureBox3.TabStop = false;
-            // 
             // x
             // 
             this.x.Controls.Add(this.btnWeb);
@@ -253,6 +230,7 @@
             this.btnKurs.TabIndex = 2;
             this.btnKurs.Text = "Was sind Vektoren?";
             this.btnKurs.UseVisualStyleBackColor = true;
+            this.btnKurs.Click += new System.EventHandler(this.btnKurs_Click);
             // 
             // btnÜber
             // 
@@ -275,15 +253,16 @@
             this.btnAnleitung.UseVisualStyleBackColor = true;
             this.btnAnleitung.Click += new System.EventHandler(this.btnAnleitung_Click);
             // 
-            // checkBox1
+            // checkOrtsvektor
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(39, 111);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(105, 17);
-            this.checkBox1.TabIndex = 10;
-            this.checkBox1.Text = "checkOrtsvektor";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkOrtsvektor.AutoSize = true;
+            this.checkOrtsvektor.Location = new System.Drawing.Point(39, 111);
+            this.checkOrtsvektor.Name = "checkOrtsvektor";
+            this.checkOrtsvektor.Size = new System.Drawing.Size(75, 17);
+            this.checkOrtsvektor.TabIndex = 10;
+            this.checkOrtsvektor.Text = "Ortsvektor";
+            this.checkOrtsvektor.UseVisualStyleBackColor = true;
+            this.checkOrtsvektor.CheckedChanged += new System.EventHandler(this.checkOrtsvektor_CheckedChanged);
             // 
             // btnWeb
             // 
@@ -294,6 +273,41 @@
             this.btnWeb.Text = "zur Website";
             this.btnWeb.UseVisualStyleBackColor = true;
             this.btnWeb.Click += new System.EventHandler(this.btnWeb_Click);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::VektorRechner.Properties.Resources.vektorKlammer;
+            this.pictureBox3.Location = new System.Drawing.Point(6, 19);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(147, 99);
+            this.pictureBox3.TabIndex = 13;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::VektorRechner.Properties.Resources.vektorKlammer;
+            this.pictureBox2.Location = new System.Drawing.Point(189, 19);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(147, 99);
+            this.pictureBox2.TabIndex = 5;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::VektorRechner.Properties.Resources.vektorKlammer;
+            this.pictureBox1.Location = new System.Drawing.Point(6, 19);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(147, 99);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // txtMultiplikator
+            // 
+            this.txtMultiplikator.Location = new System.Drawing.Point(222, 57);
+            this.txtMultiplikator.Name = "txtMultiplikator";
+            this.txtMultiplikator.Size = new System.Drawing.Size(78, 20);
+            this.txtMultiplikator.TabIndex = 11;
+            this.txtMultiplikator.Visible = false;
             // 
             // Form1
             // 
@@ -310,13 +324,13 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.x.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -345,8 +359,9 @@
         private System.Windows.Forms.Button btnAnleitung;
         private System.Windows.Forms.ComboBox cboPlusMinus;
         private System.Windows.Forms.Button btnKurs;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkOrtsvektor;
         private System.Windows.Forms.Button btnWeb;
+        private System.Windows.Forms.TextBox txtMultiplikator;
     }
 }
 
