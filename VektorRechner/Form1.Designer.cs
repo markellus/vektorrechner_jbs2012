@@ -49,6 +49,7 @@
             this.x = new System.Windows.Forms.GroupBox();
             this.btnÜber = new System.Windows.Forms.Button();
             this.btnAnleitung = new System.Windows.Forms.Button();
+            this.btnKurs = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -226,6 +227,7 @@
             // 
             // x
             // 
+            this.x.Controls.Add(this.btnKurs);
             this.x.Controls.Add(this.btnÜber);
             this.x.Controls.Add(this.btnAnleitung);
             this.x.Location = new System.Drawing.Point(177, 236);
@@ -248,12 +250,21 @@
             // btnAnleitung
             // 
             this.btnAnleitung.Enabled = false;
-            this.btnAnleitung.Location = new System.Drawing.Point(6, 69);
+            this.btnAnleitung.Location = new System.Drawing.Point(6, 19);
             this.btnAnleitung.Name = "btnAnleitung";
             this.btnAnleitung.Size = new System.Drawing.Size(165, 23);
             this.btnAnleitung.TabIndex = 0;
             this.btnAnleitung.Text = "Anleitung";
             this.btnAnleitung.UseVisualStyleBackColor = true;
+            // 
+            // btnKurs
+            // 
+            this.btnKurs.Location = new System.Drawing.Point(6, 48);
+            this.btnKurs.Name = "btnKurs";
+            this.btnKurs.Size = new System.Drawing.Size(165, 23);
+            this.btnKurs.TabIndex = 2;
+            this.btnKurs.Text = "Was sind Vektoren?";
+            this.btnKurs.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -304,6 +315,7 @@
         private System.Windows.Forms.Button btnÜber;
         private System.Windows.Forms.Button btnAnleitung;
         private System.Windows.Forms.ComboBox cboPlusMinus;
+        private System.Windows.Forms.Button btnKurs;
     }
 }
 
