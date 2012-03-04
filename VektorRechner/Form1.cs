@@ -144,6 +144,7 @@ namespace VektorRechner
                 {
                     txtVektor33.Text = Convert.ToString(vektor3[2]);
                 }
+                btnGrafik.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -162,16 +163,18 @@ namespace VektorRechner
 
         private void btnGrafik_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("In Kürze verfügbar. Prüfen Sie auf Updates!");
-            return;
 
-            if (is3D)
+            if (!is3D)
             {
-                Grafik2D grafik = new Grafik2D();
+                
+                Grafik2D grafik = new Grafik2D(Convert.ToInt32(vektor1[0]),Convert.ToInt32(vektor1[1]),Convert.ToInt32(vektor2[0]),Convert.ToInt32(vektor2[1]),Convert.ToInt32(vektor3[0]),Convert.ToInt32(vektor3[1]),Convert.ToInt32(txtStartX.Text),Convert.ToInt32(txtStartY.Text));
                 grafik.Show();
             }
             else
             {
+                MessageBox.Show("3D-Darstellung ist leider noch nicht möglich.");
+                return;
+
                 Process dxEngine = new Process();
                 dxEngine.StartInfo.FileName = "dxEngine.exe"; //TODO: Befehlszeilenargumente
                 dxEngine.Start();
@@ -235,5 +238,7 @@ namespace VektorRechner
         private void checkOrtsvektor_CheckedChanged(object sender, EventArgs e)
         {
         }
+
+
     }
 }

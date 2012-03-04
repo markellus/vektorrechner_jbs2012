@@ -28,9 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // Grafik2D
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(698, 483);
+            this.Name = "Grafik2D";
             this.Text = "Grafik2D";
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Grafik2D_Paint);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

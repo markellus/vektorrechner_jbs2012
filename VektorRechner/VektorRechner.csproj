@@ -52,8 +52,11 @@
     <Compile Include="AboutBox1.Designer.cs">
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </Compile>
+    <Compile Include="clsKoordinatensystem.cs" />
+    <Compile Include="clsLabel.cs" />
     <Compile Include="clsLinie.cs" />
     <Compile Include="clsLinieBeschriftet.cs" />
+    <Compile Include="clsVektor.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +88,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Grafik2D.resx">
+      <DependentUpon>Grafik2D.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Kurs.resx">
       <DependentUpon>Kurs.cs</DependentUpon>
