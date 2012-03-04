@@ -18,7 +18,7 @@ namespace VektorRechner
         private List<clsVektor> vektoren = new List<clsVektor>();
 
 
-        public clsKoordinatensystem(int Skalierung, int v1x1, int v1x2, int v2x1, int v2x2, int v3x1, int v3x2, int xStart, int yStart)
+        public clsKoordinatensystem(int Skalierung, int v1x1, int v1x2, int v2x1, int v2x2, int v3x1, int v3x2, int xStart, int yStart, int rechenart)
         {
             skalierung = Skalierung;
 
@@ -54,13 +54,19 @@ namespace VektorRechner
                 beschriftung -= 1;
             }
 
-            //vektoren.Add(new clsVektor(v1x1 * 20 / skalierung, v1x2 * 20 / skalierung, 305 + (xStart * 20 / skalierung), 305 - (yStart * 20 / skalierung), Pens.Red));
-            //vektoren.Add(new clsVektor(v2x1 * 20 / skalierung, v2x2 * 20 / skalierung, 305 + (xStart * 20 / skalierung), 305 - (yStart * 20 / skalierung), Pens.Blue));
-            //vektoren.Add(new clsVektor(v3x1 * 20 / skalierung, v3x2 * 20 / skalierung, 305 + (xStart * 20 / skalierung), 305 - (yStart * 20 / skalierung), Pens.YellowGreen));
+            if (rechenart == 0)
+            {
+                vektoren.Add(new clsVektor(v1x1 * 20 / skalierung, v1x2 * 20 / skalierung, 305 + (xStart * 20 / skalierung), 305 - (yStart * 20 / skalierung), Pens.Red));
+                vektoren.Add(new clsVektor(v2x1 * 20 / skalierung, v2x2 * 20 / skalierung, 305 + (v1x1 * 20 / skalierung), 305 - (v1x2 * 20 / skalierung), Pens.Blue));
+                vektoren.Add(new clsVektor(v3x1 * 20 / skalierung, v3x2 * 20 / skalierung, 305 + (xStart * 20 / skalierung), 305 - (yStart * 20 / skalierung), Pens.YellowGreen));
+            }
 
-            vektoren.Add(new clsVektor(v1x1 * 20 / skalierung, v1x2 * 20 / skalierung, 305 + (xStart * 20 / skalierung), 305 - (yStart * 20 / skalierung), Pens.Red));
-            vektoren.Add(new clsVektor(v2x1 * 20 / skalierung, v2x2 * 20 / skalierung, 305 + (v1x1 * 20 / skalierung), 305 - (v1x2 * 20 / skalierung), Pens.Blue));
-            vektoren.Add(new clsVektor(v3x1 * 20 / skalierung, v3x2 * 20 / skalierung, 305 + (xStart * 20 / skalierung), 305 - (yStart * 20 / skalierung), Pens.YellowGreen));
+            else
+            {
+                vektoren.Add(new clsVektor(v1x1 * 20 / skalierung, v1x2 * 20 / skalierung, 305 + (xStart * 20 / skalierung), 305 - (yStart * 20 / skalierung), Pens.Red));
+                vektoren.Add(new clsVektor(v2x1 * 20 / skalierung, v2x2 * 20 / skalierung, 305 + (xStart * 20 / skalierung), 305 - (yStart * 20 / skalierung), Pens.Blue));
+                vektoren.Add(new clsVektor(v3x1 * 20 / skalierung, v3x2 * 20 / skalierung, 305 + (xStart * 20 / skalierung), 305 - (yStart * 20 / skalierung), Pens.YellowGreen));
+            }
 
         }
 

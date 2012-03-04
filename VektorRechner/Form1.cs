@@ -97,6 +97,8 @@ namespace VektorRechner
 
         private void werteEinlesen()
         {
+            is3D = false;
+
             try
             {
                 if (txtVektor11.Text == "" | txtVektor12.Text == "") { VektorDimensionException(); return; }
@@ -163,26 +165,37 @@ namespace VektorRechner
 
         private void btnGrafik_Click(object sender, EventArgs e)
         {
-
-            if (!is3D)
+            try
             {
-                
-                Grafik2D grafik = new Grafik2D(Convert.ToInt32(vektor1[0]),Convert.ToInt32(vektor1[1]),Convert.ToInt32(vektor2[0]),Convert.ToInt32(vektor2[1]),Convert.ToInt32(vektor3[0]),Convert.ToInt32(vektor3[1]),Convert.ToInt32(txtStartX.Text),Convert.ToInt32(txtStartY.Text));
-                grafik.Show();
+                if (!is3D)
+                {
+                    if (txtStartX.Text != "" && txtStartY.Text != "")
+                    {
+                        Grafik2D grafik = new Grafik2D(Convert.ToInt32(vektor1[0]), Convert.ToInt32(vektor1[1]), Convert.ToInt32(vektor2[0]), Convert.ToInt32(vektor2[1]), Convert.ToInt32(vektor3[0]), Convert.ToInt32(vektor3[1]), Convert.ToInt32(txtStartX.Text), Convert.ToInt32(txtStartY.Text), cboPlusMinus.SelectedIndex);
+                        grafik.Show();
+                    }
+                    else { MessageBox.Show("Geben Sie bitte die Startkoordinaten an"); }
+                }
+                else
+                {
+                    MessageBox.Show("3D-Darstellung ist leider noch nicht möglich.");
+                    return;
+
+                    Process dxEngine = new Process();
+                    dxEngine.StartInfo.FileName = "dxEngine.exe"; //TODO: Befehlszeilenargumente
+                    dxEngine.Start();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("3D-Darstellung ist leider noch nicht möglich.");
-                return;
-
-                Process dxEngine = new Process();
-                dxEngine.StartInfo.FileName = "dxEngine.exe"; //TODO: Befehlszeilenargumente
-                dxEngine.Start();
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void btnAnleitung_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("In Kürze verfügbar. Prüfen Sie auf Updates!");
+            return;
         }
 
         private void btnWeb_Click(object sender, EventArgs e)

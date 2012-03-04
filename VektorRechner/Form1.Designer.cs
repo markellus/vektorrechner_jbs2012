@@ -164,6 +164,7 @@
             // checkOrtsvektor
             // 
             this.checkOrtsvektor.AutoSize = true;
+            this.checkOrtsvektor.Enabled = false;
             this.checkOrtsvektor.Location = new System.Drawing.Point(42, 123);
             this.checkOrtsvektor.Name = "checkOrtsvektor";
             this.checkOrtsvektor.Size = new System.Drawing.Size(75, 17);
@@ -371,7 +372,6 @@
             // 
             // btnAnleitung
             // 
-            this.btnAnleitung.Enabled = false;
             this.btnAnleitung.Location = new System.Drawing.Point(6, 19);
             this.btnAnleitung.Name = "btnAnleitung";
             this.btnAnleitung.Size = new System.Drawing.Size(165, 23);
