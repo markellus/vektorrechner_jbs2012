@@ -60,6 +60,8 @@
             this.btnKurs = new System.Windows.Forms.Button();
             this.btnÜber = new System.Windows.Forms.Button();
             this.btnAnleitung = new System.Windows.Forms.Button();
+            this.txtSkalierung = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -71,6 +73,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.txtSkalierung);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
@@ -380,6 +384,23 @@
             this.btnAnleitung.UseVisualStyleBackColor = true;
             this.btnAnleitung.Click += new System.EventHandler(this.btnAnleitung_Click);
             // 
+            // txtSkalierung
+            // 
+            this.txtSkalierung.Location = new System.Drawing.Point(72, 176);
+            this.txtSkalierung.Name = "txtSkalierung";
+            this.txtSkalierung.Size = new System.Drawing.Size(45, 20);
+            this.txtSkalierung.TabIndex = 19;
+            this.txtSkalierung.Text = "1";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 179);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(60, 13);
+            this.label5.TabIndex = 20;
+            this.label5.Text = "Skalierung:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -440,6 +461,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtSkalierung;
     }
 }
 

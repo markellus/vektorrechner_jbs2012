@@ -171,8 +171,16 @@ namespace VektorRechner
                 {
                     if (txtStartX.Text != "" && txtStartY.Text != "")
                     {
-                        Grafik2D grafik = new Grafik2D(Convert.ToInt32(vektor1[0]), Convert.ToInt32(vektor1[1]), Convert.ToInt32(vektor2[0]), Convert.ToInt32(vektor2[1]), Convert.ToInt32(vektor3[0]), Convert.ToInt32(vektor3[1]), Convert.ToInt32(txtStartX.Text), Convert.ToInt32(txtStartY.Text), cboPlusMinus.SelectedIndex);
-                        grafik.Show();
+                        if (txtSkalierung.Text != "" && Convert.ToInt32(txtSkalierung.Text) >= 1)
+                        {
+                            Berechnungen.KoordinatenMatrix.skalierung = Convert.ToInt32(txtSkalierung.Text);
+                            Grafik2D grafik = new Grafik2D(Convert.ToInt32(vektor1[0]), Convert.ToInt32(vektor1[1]), Convert.ToInt32(vektor2[0]), Convert.ToInt32(vektor2[1]), Convert.ToInt32(vektor3[0]), Convert.ToInt32(vektor3[1]), Convert.ToInt32(txtStartX.Text), Convert.ToInt32(txtStartY.Text), cboPlusMinus.SelectedIndex);
+                            grafik.Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Geben Sie bitte eine Skalierung an.");
+                        }
                     }
                     else { MessageBox.Show("Geben Sie bitte die Startkoordinaten an"); }
                 }

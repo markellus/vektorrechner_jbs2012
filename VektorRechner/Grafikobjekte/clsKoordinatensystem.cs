@@ -19,10 +19,8 @@ namespace VektorRechner
         private List<clsVektor> vektoren = new List<clsVektor>();
 
 
-        public clsKoordinatensystem(int Skalierung, int v1x1, int v1x2, int v2x1, int v2x2, int v3x1, int v3x2, int xStart, int yStart, int rechenart)
+        public clsKoordinatensystem(int v1x1, int v1x2, int v2x1, int v2x2, int v3x1, int v3x2, int xStart, int yStart, int rechenart)
         {
-            //Skalierung einstellen
-            KoordinatenMatrix.skalierung = Skalierung;
             ErstelleAchsen();
             ErstelleAchsenLinien();
             ErstelleAchsenLinienBeschriftung();

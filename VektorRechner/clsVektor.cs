@@ -28,16 +28,17 @@ namespace VektorRechner
 
             xStart = xStartPunkt;
             yStart = yStartPunkt;
+            //Den Stift transparent machen
             Pen tempfarbe = new Pen(Color.FromArgb(128,farbe.Color));
-            
+            //Der Pfeil am Ende des Vektors
             Point[] pts = { new Point(-3, 0), new Point(3, 0), new Point(0, 4), new Point(-3, 0) };
             GraphicsPath path = new GraphicsPath();
             path.AddLines(pts);
             GraphicsPath fill = new GraphicsPath();
             fill.FillMode = FillMode.Alternate;
             CustomLineCap customLineCap = new CustomLineCap(fill, path);
-
             tempfarbe.CustomEndCap = customLineCap;
+            //Den fertig konfigurierten Stift speichern
             this.farbe = tempfarbe;
             //Die Werte in Bildschirmpixel umrechnen
             ÜbertrageAufPixelEbene();
@@ -56,23 +57,6 @@ namespace VektorRechner
             int endPunktX = xStartInPixel + x1InPixel;
             int endPunktY = yStartInPixel - x2InPixel ;
             graphics.DrawLine(farbe, xStartInPixel, yStartInPixel, endPunktX, endPunktY);
-        }
-
-        public void bla()
-        {
-            int a = x1;
-            int b = x2;
-
-            int a2 = a * a;
-            int b2 = b * b;
-
-            double c2 = a2 * b2;
-
-            double c = Math.Sqrt(c2);
-
-            double sinAlpha = a / c;
-
-            double alpha = Math.Asin(sinAlpha);
         }
     }
 }
