@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dxengine", "dxengine\dxengi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dxengineContent", "dxengine\dxengineContent\dxengineContent.contentproj", "{F7C50C6D-2F65-45BF-A5B2-343F5E11453D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Updater", "Updater\Updater.csproj", "{5B1BA019-11D4-46DB-86B4-1997651BFC38}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -21,6 +23,10 @@ Global
 		{A96E9BB6-BA7E-436E-A4E3-23FF03CDA225}.Release|x86.ActiveCfg = Release|x86
 		{F7C50C6D-2F65-45BF-A5B2-343F5E11453D}.Debug|x86.ActiveCfg = Debug|x86
 		{F7C50C6D-2F65-45BF-A5B2-343F5E11453D}.Release|x86.ActiveCfg = Release|x86
+		{5B1BA019-11D4-46DB-86B4-1997651BFC38}.Debug|x86.ActiveCfg = Debug|x86
+		{5B1BA019-11D4-46DB-86B4-1997651BFC38}.Debug|x86.Build.0 = Debug|x86
+		{5B1BA019-11D4-46DB-86B4-1997651BFC38}.Release|x86.ActiveCfg = Release|x86
+		{5B1BA019-11D4-46DB-86B4-1997651BFC38}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

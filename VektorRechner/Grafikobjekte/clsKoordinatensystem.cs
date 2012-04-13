@@ -22,50 +22,11 @@ namespace VektorRechner
         public clsKoordinatensystem(int Skalierung, int v1x1, int v1x2, int v2x1, int v2x2, int v3x1, int v3x2, int xStart, int yStart, int rechenart)
         {
             //Skalierung einstellen
-            skalierung = Skalierung;
-            KoordinatenMatrix.skalierung = skalierung;
+            KoordinatenMatrix.skalierung = Skalierung;
             ErstelleAchsen();
             ErstelleAchsenLinien();
-            //Die Beschriftungen deklarieren
-            for (int i = 0; i < 30; i++)
-            {
-                if ((i - 15) != 0 && (i - 15) != -1)
-                {
-                    linienBeschriftungLabel.Add(new clsLabel(i * 20, 315, new Font("Arial", 8), Brushes.Black, Convert.ToString((i - 15) * skalierung)));
-                }
-            }
-
-            int beschriftung = 15;
-
-            for (int i = 0; i < 30; i++)
-            {
-                if (i - 15 != 0)
-                {
-                    linienBeschriftungLabel.Add(new clsLabel(280, i * 20, new Font("Arial", 8), Brushes.Black, Convert.ToString(beschriftung * skalierung)));
-                }
-                beschriftung -= 1;
-            }
-            //Die Vektoren deklarieren
-            int StartPunktX = KoordinatenMatrix.berechnePixelX(xStart);
-            int StartPunktY = KoordinatenMatrix.berechnePixelX(yStart);
-            if (rechenart == 0)
-            {
-                vektoren.Add(new clsVektor(KoordinatenMatrix.berechneStrecke(v1x1), KoordinatenMatrix.berechneStrecke(v1x2), StartPunktX, StartPunktY, Pens.Red));
-                vektoren.Add(new clsVektor(KoordinatenMatrix.berechneStrecke(v2x1), KoordinatenMatrix.berechneStrecke(v2x2), KoordinatenMatrix.berechnePixelX(v1x1), KoordinatenMatrix.berechnePixelY(v1x2), Pens.Blue));
-                vektoren.Add(new clsVektor(KoordinatenMatrix.berechneStrecke(v3x1), KoordinatenMatrix.berechneStrecke(v3x2), StartPunktX, StartPunktY, Pens.YellowGreen));
-            }
-
-            else if (rechenart == 1)
-            {
-                vektoren.Add(new clsVektor(KoordinatenMatrix.berechneStrecke(v1x1), KoordinatenMatrix.berechneStrecke(v1x2), StartPunktX, StartPunktY, Pens.Red));
-                vektoren.Add(new clsVektor(KoordinatenMatrix.berechneStrecke(v2x1), KoordinatenMatrix.berechneStrecke(v2x2), StartPunktX, StartPunktY, Pens.Blue));
-                vektoren.Add(new clsVektor(KoordinatenMatrix.berechneStrecke(v3x1), KoordinatenMatrix.berechneStrecke(v3x2), StartPunktX, StartPunktY, Pens.YellowGreen));
-            }
-            else
-            {
-                vektoren.Add(new clsVektor(KoordinatenMatrix.berechneStrecke(v3x1), KoordinatenMatrix.berechneStrecke(v3x2), StartPunktX, StartPunktY, Pens.YellowGreen));
-                vektoren.Add(new clsVektor(KoordinatenMatrix.berechneStrecke(v1x1), KoordinatenMatrix.berechneStrecke(v1x2), StartPunktX, StartPunktY, Pens.Red));
-            }
+            ErstelleAchsenLinienBeschriftung();
+            ErstelleVektoren(v1x1, v1x2, v2x1, v2x2, v3x1, v3x2, xStart, yStart, rechenart);
 
         }
 
@@ -90,7 +51,61 @@ namespace VektorRechner
             }
         }
 
-        public int skalierung { get; set; }
+        private void ErstelleAchsenLinienBeschriftung()
+        {
+            linienBeschriftungLabel.Clear();
+            //Die Beschriftungen deklarieren
+            for (int i = 0; i < 30; i++)
+            {
+                if ((i - 15) != 0 && (i - 15) != -1)
+                {
+                    linienBeschriftungLabel.Add(new clsLabel(i * 20, 315, new Font("Arial", 8), Brushes.Black, Convert.ToString((i - 15) * KoordinatenMatrix.skalierung)));
+                }
+            }
+
+            int beschriftung = 15;
+
+            for (int i = 0; i < 30; i++)
+            {
+                if (i - 15 != 0)
+                {
+                    linienBeschriftungLabel.Add(new clsLabel(280, i * 20, new Font("Arial", 8), Brushes.Black, Convert.ToString(beschriftung * KoordinatenMatrix.skalierung)));
+                }
+                beschriftung -= 1;
+            }
+        }
+
+        private void ErstelleVektoren(int v1x1, int v1x2, int v2x1, int v2x2, int v3x1, int v3x2, int xStart, int yStart, int rechenart)
+        {
+            //Die Vektoren deklarieren
+            KoordinatenMatrix.StartpunktX = KoordinatenMatrix.berechnePixelX(xStart);
+            KoordinatenMatrix.StartpunktY = KoordinatenMatrix.berechnePixelX(yStart);
+            if (rechenart == 0)
+            {
+                vektoren.Add(new clsVektor(v1x1, v1x2, xStart, yStart, Pens.Red));
+                vektoren.Add(new clsVektor(v2x1, v2x2, v1x1, v1x2, Pens.Blue));
+                vektoren.Add(new clsVektor(v3x1, v3x2, xStart, yStart, Pens.YellowGreen));
+            }
+
+            else if (rechenart == 1)
+            {
+                vektoren.Add(new clsVektor(v1x1, v1x2, xStart, yStart, Pens.Red));
+                vektoren.Add(new clsVektor(-v2x1, -v2x2, v1x1, v1x2, Pens.Blue));
+                vektoren.Add(new clsVektor(v3x1, v3x2, xStart, yStart, Pens.YellowGreen));
+            }
+            else
+            {
+                vektoren.Add(new clsVektor(v3x1, v3x2, xStart, yStart, Pens.YellowGreen));
+                vektoren.Add(new clsVektor(v1x1, v1x2, xStart, yStart, Pens.Red));
+            }
+        }
+
+        public void LegeSkalierungFest(int skalierung)
+        {
+            KoordinatenMatrix.skalierung = skalierung;
+            ErstelleAchsenLinienBeschriftung();
+        }
+
         //Zeichnet alle Linien, label und Vektoren
         public void zeichne(Graphics graphics)
         {

@@ -9,6 +9,9 @@ namespace VektorRechner.Berechnungen
     {
         public static int skalierung = 1;
 
+        public static int StartpunktX = 0;
+        public static int StartpunktY = 0;
+
         public static int berechnePixelX(int value)
         {
             return (value * 20 / skalierung + 305);
